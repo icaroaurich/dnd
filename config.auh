@@ -1,0 +1,5 @@
+@host = localhost;
+@usuario = usuario;
+@senha = senha;
+@bd = banco;
+@porta = 1234;
