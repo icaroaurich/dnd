@@ -38,7 +38,7 @@ $ficha = mysqli_fetch_assoc($result);
             </div>
         </div>
         <?php if ($ficha): ?>
-            <form action="salvarFicha.php" method="POST" id="formFicha">
+            <form action="fichaSalvar.php" method="POST" id="formFicha">
                 <input type="hidden" name="id" value="<?= $ficha['id'] ?>">
 
 
