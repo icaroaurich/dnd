@@ -1,5 +1,3 @@
-"# dnd" 
-
 # 🧙‍♂️ Ficha de Personagem - Dungeons & Dragons 5e
 
 Este repositório é dedicado ao desenvolvimento de um projeto de **ficha digital** para **Dungeons & Dragons 5ª edição (D&D 5e)**.  
