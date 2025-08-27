@@ -25,16 +25,11 @@ $ficha = mysqli_fetch_assoc($result);
             </h1>
             <!-- Botões -->
             <div class="flex gap-2">
-                <a href="#"
-                    class="bg-gray-500 text-white px-6 py-2 rounded-xl font-bold opacity-50 cursor-not-allowed pointer-events-none">Ficha</a>
-                <a href="bag.php"
-                    class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Bag</a>
-                <a href="magias.php"
-                    class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Magias</a>
-                <button type="submit" form="formFicha"
-                    class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Salvar</button>
-                <a href="home.php"
-                    class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Voltar</a>
+                <a href="#"                             class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold opacity-50 cursor-not-allowed pointer-events-none">Ficha</a>
+                <a href="bag.php?id=<?= $id ?>"         class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Bag</a>
+                <a href="magias.php?id=<?= $id ?>"      class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Magias</a>
+                <button type="submit" form="formFicha"  class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Salvar</button>
+                <a href="home.php"                      class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Voltar</a>
             </div>
         </div>
         <?php if ($ficha): ?>
