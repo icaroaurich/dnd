@@ -3,10 +3,10 @@
 if (gethostname() === 'SERVINN-0069') {
     // Dados de conexão para SERVINN-0069
     $host = 'localhost';
-    $usuario = 'root';
-    $senha = 'new_sql';
+    $usuario = 'usuario';
+    $senha = 'senha';
     $bd = 'dnd';
-    $porta = 4407;
+    $porta = 1234;
 } else {
     // Lê os dados de conexão do arquivo config.auh
     $myfile = fopen("config.auh", "r") or die("Não foi possível abrir o arquivo de configuração!!");
