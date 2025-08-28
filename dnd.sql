@@ -22,6 +22,49 @@ CREATE DATABASE IF NOT EXISTS dnd;
 USE dnd;
 
 --
+-- Definition of table `bag`
+--
+
+DROP TABLE IF EXISTS `bag`;
+CREATE TABLE `bag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idFicha` varchar(45) DEFAULT NULL,
+  `aparencia` varchar(45) DEFAULT NULL,
+  `pc` tinyint(4) unsigned DEFAULT '0',
+  `pp` tinyint(4) unsigned DEFAULT '0',
+  `pe` tinyint(4) unsigned DEFAULT '0',
+  `po` tinyint(4) unsigned DEFAULT '0',
+  `pl` tinyint(4) unsigned DEFAULT '0',
+  `equip1nome` varchar(20) DEFAULT NULL,
+  `equip1bonus` varchar(20) DEFAULT NULL,
+  `equip1dano` varchar(20) DEFAULT NULL,
+  `equip1tipo` varchar(20) DEFAULT NULL,
+  `equip2nome` varchar(20) DEFAULT NULL,
+  `equip2bonus` varchar(20) DEFAULT NULL,
+  `equip2dano` varchar(20) DEFAULT NULL,
+  `equip2tipo` varchar(20) DEFAULT NULL,
+  `equip3nome` varchar(20) DEFAULT NULL,
+  `equip3bonus` varchar(20) DEFAULT NULL,
+  `equip3dano` varchar(20) DEFAULT NULL,
+  `equip3tipo` varchar(20) DEFAULT NULL,
+  `comentario` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bag`
+--
+
+/*!40000 ALTER TABLE `bag` DISABLE KEYS */;
+INSERT INTO `bag` (`id`,`idFicha`,`aparencia`,`pc`,`pp`,`pe`,`po`,`pl`,`equip1nome`,`equip1bonus`,`equip1dano`,`equip1tipo`,`equip2nome`,`equip2bonus`,`equip2dano`,`equip2tipo`,`equip3nome`,`equip3bonus`,`equip3dano`,`equip3tipo`,`comentario`) VALUES 
+ (1,'1','aparencia/1.png',0,0,0,136,0,'Espada Longa','','1d8','Cortante','','','','','','','','','Mestre em 65535 formas de meter porrada!'),
+ (2,'2',NULL,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (3,'3',NULL,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+ (4,'4','',0,0,0,25,0,'','','','','','','','','','','','',NULL);
+/*!40000 ALTER TABLE `bag` ENABLE KEYS */;
+
+
+--
 -- Definition of table `ficha`
 --
 
@@ -34,15 +77,15 @@ CREATE TABLE `ficha` (
   `antecedente` varchar(45) DEFAULT NULL,
   `nomeJogador` varchar(45) DEFAULT NULL,
   `raca` varchar(45) DEFAULT NULL,
-  `tedenciaEtica` varchar(45) DEFAULT NULL,
+  `tendenciaEtica` varchar(45) DEFAULT NULL,
   `tendenciaMoral` varchar(45) DEFAULT NULL,
-  `exp` int(3) unsigned DEFAULT '0',
-  `forca` int(2) unsigned DEFAULT '0',
-  `destreza` int(2) unsigned DEFAULT '0',
-  `constituicao` int(2) unsigned DEFAULT '0',
-  `inteligencia` int(2) unsigned DEFAULT '0',
-  `sabedoria` int(2) unsigned DEFAULT '0',
-  `carisma` int(2) unsigned DEFAULT '0',
+  `exp` double DEFAULT '0',
+  `forca` double DEFAULT '0',
+  `destreza` double DEFAULT '0',
+  `constituicao` double DEFAULT '0',
+  `inteligencia` double DEFAULT '0',
+  `sabedoria` double DEFAULT '0',
+  `carisma` double DEFAULT '0',
   `resForca` double DEFAULT NULL,
   `resDestreza` double DEFAULT NULL,
   `resConstituicao` double DEFAULT NULL,
@@ -92,11 +135,11 @@ CREATE TABLE `ficha` (
   `proeSobrevivencia` tinyint(1) unsigned DEFAULT '0',
   `proePersuacao` tinyint(1) unsigned DEFAULT '0',
   `idade` tinyint(2) unsigned DEFAULT '0',
-  `altura` varchar(10) DEFAULT NULL,
-  `peso` varchar(10) DEFAULT '0',
-  `olhos` varchar(10) DEFAULT NULL,
-  `pele` varchar(10) DEFAULT NULL,
-  `cabelos` varchar(10) DEFAULT NULL,
+  `altura` varchar(20) DEFAULT NULL,
+  `peso` varchar(20) DEFAULT '0',
+  `olhos` varchar(20) DEFAULT NULL,
+  `pele` varchar(20) DEFAULT NULL,
+  `cabelos` varchar(20) DEFAULT NULL,
   `proeForca` tinyint(1) unsigned DEFAULT '0',
   `proeDestreza` tinyint(1) unsigned DEFAULT '0',
   `proeConstituicao` tinyint(1) unsigned DEFAULT '0',
@@ -111,10 +154,10 @@ CREATE TABLE `ficha` (
 --
 
 /*!40000 ALTER TABLE `ficha` DISABLE KEYS */;
-INSERT INTO `ficha` (`id`,`nomePersonagem`,`classe`,`nivel`,`antecedente`,`nomeJogador`,`raca`,`tedenciaEtica`,`tendenciaMoral`,`exp`,`forca`,`destreza`,`constituicao`,`inteligencia`,`sabedoria`,`carisma`,`resForca`,`resDestreza`,`resConstituicao`,`resInteligencia`,`resSabedoria`,`resCarisma`,`acrobacia`,`arcanismo`,`atletismo`,`atuacao`,`blefar`,`furtividade`,`historia`,`intimidacao`,`intuicao`,`investigacao`,`lidarAnimais`,`medicina`,`natureza`,`percepcao`,`persuacao`,`prestigitacao`,`religiao`,`sobrevivencia`,`bonusProeficiencia`,`vidaTotal`,`classeArmadura`,`iniciativa`,`deslocamento`,`vidaAtual`,`proeAcrobacia`,`proeArcanismo`,`proeAtletismo`,`proeAtuacao`,`proeBlefar`,`proeFurtividade`,`proeHistoria`,`proeIntimidacao`,`proeIntuicao`,`proeInvestigacao`,`proeLidarAnimais`,`proeMedicina`,`proeNatureza`,`proePercepcao`,`proePrestigitacao`,`proeReligiao`,`proeSobrevivencia`,`proePersuacao`,`idade`,`altura`,`peso`,`olhos`,`pele`,`cabelos`,`proeForca`,`proeDestreza`,`proeConstituicao`,`proeInteligencia`,`proeSabedoria`,`proeCarisma`) VALUES 
- (1,'Zarothel','Mago',3,'Sabio','Icaro','Alto elfo','Neutro','Leal',0,10,10,15,17,13,8,0,0,2,3,1,-1,0,3,0,-1,-1,0,3,-1,1,3,1,1,3,1,-1,0,3,1,2,17,11,0,9,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,'1,80','10kg','Castanhos','Branca','Prateados',0,0,0,0,0,0),
+INSERT INTO `ficha` (`id`,`nomePersonagem`,`classe`,`nivel`,`antecedente`,`nomeJogador`,`raca`,`tendenciaEtica`,`tendenciaMoral`,`exp`,`forca`,`destreza`,`constituicao`,`inteligencia`,`sabedoria`,`carisma`,`resForca`,`resDestreza`,`resConstituicao`,`resInteligencia`,`resSabedoria`,`resCarisma`,`acrobacia`,`arcanismo`,`atletismo`,`atuacao`,`blefar`,`furtividade`,`historia`,`intimidacao`,`intuicao`,`investigacao`,`lidarAnimais`,`medicina`,`natureza`,`percepcao`,`persuacao`,`prestigitacao`,`religiao`,`sobrevivencia`,`bonusProeficiencia`,`vidaTotal`,`classeArmadura`,`iniciativa`,`deslocamento`,`vidaAtual`,`proeAcrobacia`,`proeArcanismo`,`proeAtletismo`,`proeAtuacao`,`proeBlefar`,`proeFurtividade`,`proeHistoria`,`proeIntimidacao`,`proeIntuicao`,`proeInvestigacao`,`proeLidarAnimais`,`proeMedicina`,`proeNatureza`,`proePercepcao`,`proePrestigitacao`,`proeReligiao`,`proeSobrevivencia`,`proePersuacao`,`idade`,`altura`,`peso`,`olhos`,`pele`,`cabelos`,`proeForca`,`proeDestreza`,`proeConstituicao`,`proeInteligencia`,`proeSabedoria`,`proeCarisma`) VALUES 
+ (1,'Zarothiel','Mago',3,'Sabio','Icaro','Alto elfo','Neutro','Leal',0,10,10,15,17,13,8,0,0,2,3,1,-1,0,3,0,-1,-1,0,3,-1,1,3,1,1,3,1,-1,0,3,1,2,17,11,0,9,17,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,20,'1,80','10kg','Castanhos','Branca','Prateados',0,0,0,0,0,0),
  (3,'Cleition Rasta','5',1,'acólito','joão','anão',NULL,NULL,0,12,15,13,8,10,18,1,2,1,-1,0,4,2,-1,1,4,4,2,-1,4,0,-1,0,0,-1,0,4,2,-1,0,3,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NULL,'0',NULL,NULL,NULL,0,0,0,0,0,0),
- (4,'Zief','MAGO',2,'Sábio','Daniel','Humano',NULL,NULL,0,12,14,15,18,15,18,1,2,2,4,2,4,2,4,1,4,4,2,4,4,2,4,2,2,4,2,4,2,4,2,2,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,0,NULL,'0',NULL,NULL,NULL,0,0,0,0,0,0);
+ (4,'Zief','MAGO',2,'Sábio','Daniel','Humano',NULL,NULL,0,12,13,14,18,14,18,1,1,2,4,2,4,1,4,1,4,4,1,4,4,2,4,2,2,4,2,4,1,4,2,2,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,24,'1,83','83','Castanhos E.','Branco','Preto',0,0,0,0,0,0);
 /*!40000 ALTER TABLE `ficha` ENABLE KEYS */;
 
 
