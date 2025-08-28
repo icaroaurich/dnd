@@ -21,7 +21,7 @@ $ficha = mysqli_fetch_assoc($result);
 
         <!-- TOPO -->
         <div class="flex justify-between items-center mb-4">
-            <h1 class="text-3xl font-bold text-yellow-400 mb-6 text-left">📜 Inventário do Personagem:
+            <h1 class="text-3xl font-bold text-yellow-400 mb-6 text-left">📜 Magias do Personagem:
                 <?= $ficha['nomePersonagem'] ?>
             </h1>
             <!-- Botões -->
@@ -29,7 +29,8 @@ $ficha = mysqli_fetch_assoc($result);
                 <a href="ficha.php?id=<?= $id ?>"       class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Ficha</a>
                 <a href="bag.php?id=<?= $id ?>"         class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Bag</a>
                 <a href="#"                             class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold opacity-50 cursor-not-allowed pointer-events-none">Magias</a>
-                <button type="submit" form="formFicha"  class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Salvar</button>
+                <a href="batalha.php?id=<?= $id ?>"     class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Batalha</a>
+                <button type="submit" form="formMagias" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Salvar</button>
                 <a href="home.php"                      class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Voltar</a>
             </div>
         </div>
