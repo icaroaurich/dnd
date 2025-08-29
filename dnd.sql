@@ -57,7 +57,7 @@ CREATE TABLE `bag` (
 
 /*!40000 ALTER TABLE `bag` DISABLE KEYS */;
 INSERT INTO `bag` (`id`,`idFicha`,`aparencia`,`pc`,`pp`,`pe`,`po`,`pl`,`equip1nome`,`equip1bonus`,`equip1dano`,`equip1tipo`,`equip2nome`,`equip2bonus`,`equip2dano`,`equip2tipo`,`equip3nome`,`equip3bonus`,`equip3dano`,`equip3tipo`,`comentario`) VALUES 
- (1,'1','aparencia/1.png',0,0,0,136,0,'Espada Longa','','1d8','Cortante','','','','','','','','','Mestre em 65535 formas de meter porrada!'),
+ (1,'1','aparencia/1.png',0,0,0,146,0,'Espada Longa','','1d8','Cortante','','','','','','','','','Raça: Elfo\r\n        Espada Longa\r\nClasse: Mago\r\n        Bordão\r\n        Orbe\r\n        Pacote de explorador\r\n        Grimório\r\nAntecedente Sábio:\r\n        Um vidro de tinta escura\r\n        Uma pena\r\n        Uma faca pequena\r\n        Roupas comuns'),
  (2,'2',NULL,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
  (3,'3',NULL,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
  (4,'4','',0,0,0,25,0,'','','','','','','','','','','','',NULL);
@@ -77,7 +77,7 @@ CREATE TABLE `ficha` (
   `antecedente` varchar(45) DEFAULT NULL,
   `nomeJogador` varchar(45) DEFAULT NULL,
   `raca` varchar(45) DEFAULT NULL,
-  `tendenciaEtica` varchar(45) DEFAULT NULL,
+  `tendenciaEticaMoral` varchar(45) DEFAULT NULL,
   `tendenciaMoral` varchar(45) DEFAULT NULL,
   `exp` double DEFAULT '0',
   `forca` double DEFAULT '0',
@@ -146,6 +146,7 @@ CREATE TABLE `ficha` (
   `proeInteligencia` tinyint(1) unsigned DEFAULT '0',
   `proeSabedoria` tinyint(1) unsigned DEFAULT '0',
   `proeCarisma` tinyint(1) unsigned DEFAULT '0',
+  `comentario` varchar(999) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
@@ -154,10 +155,10 @@ CREATE TABLE `ficha` (
 --
 
 /*!40000 ALTER TABLE `ficha` DISABLE KEYS */;
-INSERT INTO `ficha` (`id`,`nomePersonagem`,`classe`,`nivel`,`antecedente`,`nomeJogador`,`raca`,`tendenciaEtica`,`tendenciaMoral`,`exp`,`forca`,`destreza`,`constituicao`,`inteligencia`,`sabedoria`,`carisma`,`resForca`,`resDestreza`,`resConstituicao`,`resInteligencia`,`resSabedoria`,`resCarisma`,`acrobacia`,`arcanismo`,`atletismo`,`atuacao`,`blefar`,`furtividade`,`historia`,`intimidacao`,`intuicao`,`investigacao`,`lidarAnimais`,`medicina`,`natureza`,`percepcao`,`persuacao`,`prestigitacao`,`religiao`,`sobrevivencia`,`bonusProeficiencia`,`vidaTotal`,`classeArmadura`,`iniciativa`,`deslocamento`,`vidaAtual`,`proeAcrobacia`,`proeArcanismo`,`proeAtletismo`,`proeAtuacao`,`proeBlefar`,`proeFurtividade`,`proeHistoria`,`proeIntimidacao`,`proeIntuicao`,`proeInvestigacao`,`proeLidarAnimais`,`proeMedicina`,`proeNatureza`,`proePercepcao`,`proePrestigitacao`,`proeReligiao`,`proeSobrevivencia`,`proePersuacao`,`idade`,`altura`,`peso`,`olhos`,`pele`,`cabelos`,`proeForca`,`proeDestreza`,`proeConstituicao`,`proeInteligencia`,`proeSabedoria`,`proeCarisma`) VALUES 
- (1,'Zarothiel','Mago',3,'Sabio','Icaro','Alto elfo','Neutro','Leal',0,10,10,15,17,13,8,0,0,2,3,1,-1,0,3,0,-1,-1,0,3,-1,1,3,1,1,3,1,-1,0,3,1,2,17,11,0,9,17,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,20,'1,80','10kg','Castanhos','Branca','Prateados',0,0,0,0,0,0),
- (3,'Cleition Rasta','5',1,'acólito','joão','anão',NULL,NULL,0,12,15,13,8,10,18,1,2,1,-1,0,4,2,-1,1,4,4,2,-1,4,0,-1,0,0,-1,0,4,2,-1,0,3,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NULL,'0',NULL,NULL,NULL,0,0,0,0,0,0),
- (4,'Zief','MAGO',2,'Sábio','Daniel','Humano',NULL,NULL,0,12,13,14,18,14,18,1,1,2,4,2,4,1,4,1,4,4,1,4,4,2,4,2,2,4,2,4,1,4,2,2,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,24,'1,83','83','Castanhos E.','Branco','Preto',0,0,0,0,0,0);
+INSERT INTO `ficha` (`id`,`nomePersonagem`,`classe`,`nivel`,`antecedente`,`nomeJogador`,`raca`,`tendenciaEticaMoral`,`tendenciaMoral`,`exp`,`forca`,`destreza`,`constituicao`,`inteligencia`,`sabedoria`,`carisma`,`resForca`,`resDestreza`,`resConstituicao`,`resInteligencia`,`resSabedoria`,`resCarisma`,`acrobacia`,`arcanismo`,`atletismo`,`atuacao`,`blefar`,`furtividade`,`historia`,`intimidacao`,`intuicao`,`investigacao`,`lidarAnimais`,`medicina`,`natureza`,`percepcao`,`persuacao`,`prestigitacao`,`religiao`,`sobrevivencia`,`bonusProeficiencia`,`vidaTotal`,`classeArmadura`,`iniciativa`,`deslocamento`,`vidaAtual`,`proeAcrobacia`,`proeArcanismo`,`proeAtletismo`,`proeAtuacao`,`proeBlefar`,`proeFurtividade`,`proeHistoria`,`proeIntimidacao`,`proeIntuicao`,`proeInvestigacao`,`proeLidarAnimais`,`proeMedicina`,`proeNatureza`,`proePercepcao`,`proePrestigitacao`,`proeReligiao`,`proeSobrevivencia`,`proePersuacao`,`idade`,`altura`,`peso`,`olhos`,`pele`,`cabelos`,`proeForca`,`proeDestreza`,`proeConstituicao`,`proeInteligencia`,`proeSabedoria`,`proeCarisma`,`comentario`) VALUES 
+ (1,'Zarothiel','Mago',3,'Sabio','Icaro','Alto elfo','Neutro Leal','Leal',0,10,10,15,17,13,8,0,0,2,3,1,-1,0,3,0,-1,-1,0,3,-1,1,3,1,1,3,1,-1,0,3,1,2,17,11,0,9,17,0,1,0,0,0,0,1,0,1,1,0,0,0,1,0,0,0,0,20,'1,80','50kg','Castanhos','Branca','Prateados',0,0,0,0,0,0,'Formado em 65535 formas de encher o cu dos outros de magia\r\n\r\nElfo: \r\n        +2 em destreza\r\n        Alto Elfo: \r\n                +1 em Inteligência\r\n        Sentidos Aguçados:\r\n                Proficiência na perícia Percepção.\r\n\r\n        Visão no Escuro \r\n                (18m) (não diferencia cor)\r\n        Ancestral Feérico\r\n                Resistir a ser enfeitiçado (rolar 2x)\r\n                Magia não me coloca para dormir\r\n        Sentidos Aguçados\r\n                Melhor percepção\r\n\r\nSábio:\r\n    Proficiente em Arcanismo e História'),
+ (3,'Cleition Rasta','5',1,'acólito','joão','anão',NULL,NULL,0,12,15,13,8,10,18,1,2,1,-1,0,4,2,-1,1,4,4,2,-1,4,0,-1,0,0,-1,0,4,2,-1,0,3,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NULL,'0',NULL,NULL,NULL,0,0,0,0,0,0,NULL),
+ (4,'Zief','MAGO',2,'Sábio','Daniel','Humano','',NULL,0,12,13,15,18,14,18,1,1,2,4,2,4,1,4,1,4,4,1,4,4,2,4,2,2,4,2,4,1,4,2,2,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,24,'1,83','83','Castanhos E.','Branco','Preto',0,0,0,0,0,0,'');
 /*!40000 ALTER TABLE `ficha` ENABLE KEYS */;
 
 
@@ -168,8 +169,6 @@ INSERT INTO `ficha` (`id`,`nomePersonagem`,`classe`,`nivel`,`antecedente`,`nomeJ
 DROP TABLE IF EXISTS `magias`;
 CREATE TABLE `magias` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `selecionar` tinyint(1) unsigned DEFAULT '0',
-  `excluir` tinyint(1) unsigned DEFAULT '0',
   `nome` varchar(45) DEFAULT NULL,
   `escola` varchar(45) DEFAULT NULL,
   `tempo` varchar(45) DEFAULT NULL,
@@ -192,9 +191,35 @@ CREATE TABLE `magias` (
 --
 
 /*!40000 ALTER TABLE `magias` DISABLE KEYS */;
-INSERT INTO `magias` (`id`,`selecionar`,`excluir`,`nome`,`escola`,`tempo`,`alcance`,`componente_v`,`componente_s`,`componente_m`,`duracao`,`efeito`,`lv1`,`lv5`,`lv11`,`lv17`,`nivelMagia`) VALUES 
- (1,0,0,'Amizade','Encantamento','1 ação','Pessoal',0,0,'Maquiagem no rosto','1h','Vantagem em testes de Carisma contra 1 criatura não hostil. Ao terminar, ela sabe que foi enfeitiçada','-','-','-','-',0);
+INSERT INTO `magias` (`id`,`nome`,`escola`,`tempo`,`alcance`,`componente_v`,`componente_s`,`componente_m`,`duracao`,`efeito`,`lv1`,`lv5`,`lv11`,`lv17`,`nivelMagia`) VALUES 
+ (1,'Amizade','Encantamento','1 ação','Pessoal',0,0,'Maquiagem no rosto','1h','Vantagem em testes de Carisma contra 1 criatura não hostil. Ao terminar, ela sabe que foi enfeitiçada','-','-','-','-',0);
 /*!40000 ALTER TABLE `magias` ENABLE KEYS */;
+
+
+--
+-- Definition of table `texto`
+--
+
+DROP TABLE IF EXISTS `texto`;
+CREATE TABLE `texto` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idFicha` int(10) unsigned DEFAULT NULL,
+  `historia` varchar(999) DEFAULT NULL,
+  `outros` varchar(999) DEFAULT NULL,
+  `amigos` varchar(999) DEFAULT NULL,
+  `inimigos` varchar(999) DEFAULT NULL,
+  `tesouro` varchar(999) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `texto`
+--
+
+/*!40000 ALTER TABLE `texto` DISABLE KEYS */;
+INSERT INTO `texto` (`id`,`idFicha`,`historia`,`outros`,`amigos`,`inimigos`,`tesouro`) VALUES 
+ (1,1,'asddd',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `texto` ENABLE KEYS */;
 
 
 

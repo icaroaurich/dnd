@@ -32,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'olhos',
         'pele',
         'cabelos',
+        'comentario',
+        'tendenciaEticaMoral',
         'bonusProeficiencia'
     ];
 
@@ -117,19 +119,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Monta query UPDATE
     $sql = "UPDATE ficha SET 
-    nomePersonagem='{$dados['nomePersonagem']}',
-    classe='{$dados['classe']}',
-    nivel='{$dados['nivel']}',
-    nomeJogador='{$dados['nomeJogador']}',
-    raca='{$dados['raca']}',
-    antecedente='{$dados['antecedente']}',
-    idade='{$dados['idade']}',
-    altura='{$dados['altura']}',
-    peso='{$dados['peso']}',
-    olhos='{$dados['olhos']}',
-    pele='{$dados['pele']}',
-    cabelos='{$dados['cabelos']}',
-    bonusProeficiencia='{$dados['bonusProeficiencia']}',
+    nomePersonagem=     '{$dados['nomePersonagem']}',
+    classe=             '{$dados['classe']}',
+    nivel=              '{$dados['nivel']}',
+    nomeJogador=        '{$dados['nomeJogador']}',
+    raca=               '{$dados['raca']}',
+    antecedente=        '{$dados['antecedente']}',
+    idade=              '{$dados['idade']}',
+    altura=             '{$dados['altura']}',
+    peso=               '{$dados['peso']}',
+    olhos=              '{$dados['olhos']}',
+    pele=               '{$dados['pele']}',
+    cabelos=            '{$dados['cabelos']}',
+    comentario=         '{$dados['comentario']}',
+    tendenciaEticaMoral='{$dados['tendenciaEticaMoral']}',
+    bonusProeficiencia= '{$dados['bonusProeficiencia']}',
+
     forca='{$dados['forca']}',
     destreza='{$dados['destreza']}',
     constituicao='{$dados['constituicao']}',
@@ -142,6 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     resInteligencia='{$res['resInteligencia']}',
     resSabedoria='{$res['resSabedoria']}',
     resCarisma='{$res['resCarisma']}',
+
     atletismo='{$pericia_valores['atletismo']}',
     acrobacia='{$pericia_valores['acrobacia']}',
     furtividade='{$pericia_valores['furtividade']}',
@@ -160,6 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     blefar='{$pericia_valores['blefar']}',
     intimidacao='{$pericia_valores['intimidacao']}',
     persuacao='{$pericia_valores['persuacao']}',
+
     proeAtletismo='{$dados['proeAtletismo']}',
     proeAcrobacia='{$dados['proeAcrobacia']}',
     proeFurtividade='{$dados['proeFurtividade']}',

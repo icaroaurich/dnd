@@ -37,12 +37,13 @@ $ficha = mysqli_fetch_assoc($result);
             </h1>
             <!-- Botões -->
             <div class="flex gap-2">
-                <a href="#"                             class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold opacity-50 cursor-not-allowed pointer-events-none">Ficha</a>
-                <a href="bag.php?id=<?= $id ?>"         class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Bag</a>
-                <a href="magias.php?id=<?= $id ?>"      class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Magias</a>
-                <a href="batalha.php?id=<?= $id ?>"     class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Batalha</a>
-                <button type="submit" form="formFicha"  class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Salvar</button>
-                <a href="home.php"                      class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Voltar</a>
+                <a href="#"                             class="bg-yellow-500 text-black px-3 py-2 rounded-xl font-bold opacity-50 cursor-not-allowed">Ficha</a>
+                <a href="bag.php?id=<?= $id ?>"         class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Bag</a>
+                <a href="magias.php?id=<?= $id ?>"      class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Magias</a>
+                <a href="batalha.php?id=<?= $id ?>"     class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Batalha</a>
+                <a href="obs.php?id=<?= $id ?>"         class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Texto</a>
+                <button type="submit" form="formFicha"  class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Salvar</button>
+                <a href="home.php"                      class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Voltar</a>
             </div>
         </div>
         <?php if ($ficha): ?>
@@ -52,9 +53,9 @@ $ficha = mysqli_fetch_assoc($result);
 
 
                 <!-- LAYOUT PRINCIPAL: 12 colunas -->
-                <div class="grid grid-cols-6 gap-2">
+                <div class="grid grid-cols-12 gap-2">
                     <!-- COLUNA DO MEIO (2 blocos empilhados em largura 2+2) -->
-                    <div class="col-span-1 grid grid-cols-1 gap-1">
+                    <div class="col-span-2 grid grid-cols-1 gap-1">
                         <!-- ATRIBUTOS -->
                         <div class="bg-gray-800 rounded-2xl shadow-lg p-3">
                             <h2 class="text-lg font-bold text-green-400 mb-4">Atributos</h2>
@@ -80,7 +81,7 @@ $ficha = mysqli_fetch_assoc($result);
                         </div>
 
                         <!-- TESTE DE RESISTÊNCIA -->
-                        <div class="col-span-1 bg-gray-800 rounded-2xl shadow-lg p-3">
+                        <div class="col-span-2 bg-gray-800 rounded-2xl shadow-lg p-3">
                             <h2 class="text-lg font-bold text-green-400 mb-4">Teste de Resistência</h2>
                             <div class="space-y-1">
                                 <?php
@@ -102,7 +103,7 @@ $ficha = mysqli_fetch_assoc($result);
                         </div>
                     </div>
                     <!-- COLUNA ESQUERDA: PERÍCIAS -->
-                    <div class="col-span-1 bg-gray-800 rounded-2xl shadow-lg p-3">
+                    <div class="col-span-2 bg-gray-800 rounded-2xl shadow-lg p-3">
                         <h2 class="text-xl font-bold text-purple-400 mb-4">📝 Perícias</h2>
                         <div class="space-y-1">
                             <?php
@@ -132,7 +133,7 @@ $ficha = mysqli_fetch_assoc($result);
                                 $mod = floor((($ficha[$atributo] ?? 10) - 10) / 2);
                                 $valorPericia = $mod + ((!empty($ficha[$proe])) ? ($ficha['bonusProeficiencia'] ?? 0) : 0);
                                 ?>
-                                <p class="cursor-pointer <?= $classe ?>" data-proe="<?= $proe ?>" data-pericia="<?= $pericia ?>"
+                                <p class="flex cursor-pointer <?= $classe ?>" data-proe="<?= $proe ?>" data-pericia="<?= $pericia ?>"
                                     data-atributo="<?= $atributo ?>" onclick="togglePericia(this)">
                                     <?= ucfirst($pericia) ?>:
                                     <span id="span-<?= $pericia ?>"><?= $valorPericia ?></span>
@@ -143,23 +144,28 @@ $ficha = mysqli_fetch_assoc($result);
                         </div>
                     </div>
 
-                    <div class="col-span-4 grid grid-cols-5 gap-1">
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Nome         </label><input type="text"      name="nomePersonagem"                               value="<?= $ficha['nomePersonagem'] ?? '' ?>"   class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Classe       </label><input type="text"      name="classe"                                       value="<?= $ficha['classe'] ?? '' ?>"           class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Nível        </label><input type="number"    name="nivel"                                        value="<?= $ficha['nivel'] ?? '' ?>"            class="w-full p-2 rounded bg-gray-700 text-white text-center"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Raça         </label><input type="text"      name="raca"                                         value="<?= $ficha['raca'] ?? '' ?>"             class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Antecedente  </label><input type="text"      name="antecedente"                                  value="<?= $ficha['antecedente'] ?? '' ?>"      class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">EXP          </label><input type="text"      name="exp"                                          value="<?= $ficha['exp'] ?? '' ?>"              class="w-full p-2 rounded bg-gray-700 text-white text-center"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">BP           </label><input type="number"    name="bonusProeficiencia" id="bonusProeficiencia"   value="<?= $ficha['bonusProeficiencia'] ?? 0 ?>"class="w-full p-2 rounded bg-gray-700 text-white text-center"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Etica        </label><input type="text"      name="etica"                                        value="<?= $ficha['tendenciaEtica'] ?? '' ?>"   class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Moral        </label><input type="text"      name="moral"                                        value="<?= $ficha['tendenciaMoral'] ?? '' ?>"   class="w-full p-2 rounded bg-gray-700 text-white"></div><br>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Idade        </label><input type="text"      name="idade"                                        value="<?= $ficha['idade'] ?? '' ?>"            class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Altura       </label><input type="text"      name="altura"                                       value="<?= $ficha['altura'] ?? '' ?>"           class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Peso         </label><input type="text"      name="peso"                                         value="<?= $ficha['peso'] ?? '' ?>"             class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Olhos        </label><input type="text"      name="olhos"                                        value="<?= $ficha['olhos'] ?? '' ?>"            class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Pele         </label><input type="text"      name="pele"                                         value="<?= $ficha['pele'] ?? '' ?>"             class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Cabelos      </label><input type="text"      name="cabelos"                                      value="<?= $ficha['cabelos'] ?? '' ?>"          class="w-full p-2 rounded bg-gray-700 text-white"></div>
-                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Jogador      </label><input type="text"      name="nomeJogador"                                  value="<?= $ficha['nomeJogador'] ?? '' ?>"      class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                    <div class="col-span-3 bg-gray-800 p-4 rounded-2xl shadow-lg">
+                    <h2 class="font-bold mb-2">Caracteriticas e habilidades</h2>
+                        <textarea name="comentario"
+                            class="w-full h-[33rem] bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['comentario']) ?></textarea>
+                    </div>
+
+                    <div class="col-span-5 grid grid-cols-3 gap-1">
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Nome         </label><input type="text"      name="nomePersonagem"                               value="<?= $ficha['nomePersonagem'] ?? '' ?>"           class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Classe       </label><input type="text"      name="classe"                                       value="<?= $ficha['classe'] ?? '' ?>"                   class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Nível        </label><input type="number"    name="nivel"                                        value="<?= $ficha['nivel'] ?? '' ?>"                    class="w-full p-2 rounded bg-gray-700 text-white text-center"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Raça         </label><input type="text"      name="raca"                                         value="<?= $ficha['raca'] ?? '' ?>"                     class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Antecedente  </label><input type="text"      name="antecedente"                                  value="<?= $ficha['antecedente'] ?? '' ?>"              class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">EXP          </label><input type="text"      name="exp"                                          value="<?= $ficha['exp'] ?? '' ?>"                      class="w-full p-2 rounded bg-gray-700 text-white text-center"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">BP           </label><input type="number"    name="bonusProeficiencia" id="bonusProeficiencia"   value="<?= $ficha['bonusProeficiencia'] ?? 0 ?>"        class="w-full p-2 rounded bg-gray-700 text-white text-center"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Etica/Moral  </label><input type="text"      name="tendenciaEticaMoral"                          value="<?= $ficha['tendenciaEticaMoral'] ?? '' ?>"      class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Idade        </label><input type="text"      name="idade"                                        value="<?= $ficha['idade'] ?? '' ?>"                    class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Altura       </label><input type="text"      name="altura"                                       value="<?= $ficha['altura'] ?? '' ?>"                   class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Peso         </label><input type="text"      name="peso"                                         value="<?= $ficha['peso'] ?? '' ?>"                     class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Olhos        </label><input type="text"      name="olhos"                                        value="<?= $ficha['olhos'] ?? '' ?>"                    class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Pele         </label><input type="text"      name="pele"                                         value="<?= $ficha['pele'] ?? '' ?>"                     class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Cabelos      </label><input type="text"      name="cabelos"                                      value="<?= $ficha['cabelos'] ?? '' ?>"                  class="w-full p-2 rounded bg-gray-700 text-white"></div>
+                        <div class="bg-gray-800 rounded-2xl shadow-lg p-6"><label class="block font-semibold mb-1">Jogador      </label><input type="text"      name="nomeJogador"                                  value="<?= $ficha['nomeJogador'] ?? '' ?>"              class="w-full p-2 rounded bg-gray-700 text-white"></div>
                     </div>
                 </div>
             </form>

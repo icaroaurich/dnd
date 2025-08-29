@@ -30,22 +30,23 @@ $ficha = mysqli_fetch_assoc($result);
             </h1>
             <!-- Botões -->
             <div class="flex gap-2">
-                <a href="ficha.php?id=<?= $id ?>"class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Ficha</a>
-                <a href="#"class="bg-yellow-500 text-black px-6 py-2 rounded-xl font-bold opacity-50 cursor-not-allowed">Bag</a>
-                <a href="magias.php?id=<?= $id ?>"class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Magias</a>
-                <a href="batalha.php?id=<?= $id ?>"class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Batalha</a>
-                <button type="submit" form="formBag"class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Salvar</button>
-                <a href="home.php"class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-xl font-bold">Voltar</a>
+                <a href="ficha.php?id=<?= $id ?>"   class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Ficha</a>
+                <a href="#"                         class="bg-yellow-500 text-black px-3 py-2 rounded-xl font-bold opacity-50 cursor-not-allowed">Bag</a>
+                <a href="magias.php?id=<?= $id ?>"  class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Magias</a>
+                <a href="batalha.php?id=<?= $id ?>" class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Batalha</a>
+                <a href="obs.php?id=<?= $id ?>"     class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Texto</a>
+                <button type="submit" form="formBag"class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Salvar</button>
+                <a href="home.php"                  class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-2 rounded-xl font-bold">Voltar</a>
             </div>
         </div>
 
         <!-- FORMULÁRIO -->
         <form id="formBag" action="bagSalvar.php" method="post" enctype="multipart/form-data"
-            class="grid grid-cols-4 gap-4">
+            class="grid grid-cols-12 gap-4">
             <input type="hidden" name="idFicha" value="<?= $id ?>">
 
             <!-- Aparência -->
-            <div class="col-span-1 bg-gray-800 p-4 rounded-2xl shadow-lg flex flex-col items-center">
+            <div class="col-span-3 bg-gray-800 p-4 rounded-2xl shadow-lg flex flex-col items-center">
                 <h2 class="font-bold mb-2">Aparência</h2>
 
                 <?php if (!empty($ficha['aparencia']) && file_exists($ficha['aparencia'])): ?>
@@ -59,9 +60,16 @@ $ficha = mysqli_fetch_assoc($result);
 
                 <input type="file" name="aparencia" accept="image/*" class="mt-3 bg-gray-700 p-2 rounded w-full">
             </div>
-            <div class="col-span-3 grid grid-cols-4 gap-4">
+
+            <!-- Ataques, magias e comentários -->
+            <div class="col-span-9 grid grid-cols-6 gap-4">
+                <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
+                    <h2 class="font-bold mb-2">Ataques, Magias e Comentários</h2>
+                    <textarea name="comentario"
+                        class="w-full h-[33rem] bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['comentario']) ?></textarea>
+                </div>
                 <!-- Moedas -->
-                <div class="col-span-2 flex flex-col gap-2">
+                <div class="col-span-1 flex flex-col gap-2">
                     <label>PC <input type="number" name="pc" value="<?= $ficha['pc'] ?>"
                             class="w-20 bg-gray-700 rounded p-1"></label>
                     <label>PP <input type="number" name="pp" value="<?= $ficha['pp'] ?>"
@@ -75,7 +83,7 @@ $ficha = mysqli_fetch_assoc($result);
                 </div>
 
                 <!-- Equipamentos -->
-                <div class="col-span-2 flex flex-col gap-4">
+                <div class="col-span-3 flex flex-col gap-4">
                     <?php for ($i = 1; $i <= 3; $i++): ?>
                         <div class="grid grid-cols-4 gap-2">
                             <input type="text" name="equip<?= $i ?>nome" value="<?= $ficha["equip{$i}nome"] ?>"
@@ -88,11 +96,6 @@ $ficha = mysqli_fetch_assoc($result);
                                 placeholder="Tipo" class="bg-gray-700 p-2 rounded">
                         </div>
                     <?php endfor; ?>
-                </div>
-                <div class="col-span-4 bg-gray-800 p-4 rounded-2xl shadow-lg">
-                    <h2 class="font-bold mb-2">Ataques, Magias e Comentários</h2>
-                    <textarea name="comentario"
-                        class="w-full h-64 bg-gray-700 rounded p-2" ><?= htmlspecialchars($ficha['comentario']) ?></textarea>
                 </div>
             </div>
         </form>
