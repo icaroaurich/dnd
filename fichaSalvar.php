@@ -34,7 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'cabelos',
         'comentario',
         'tendenciaEticaMoral',
-        'bonusProeficiencia'
+        'bonusProeficiencia',
+        'personalidade',
+        'defeitos',
+        'ligacoes',
+        'ideais'
     ];
 
     $dados = [];
@@ -132,6 +136,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     pele=               '{$dados['pele']}',
     cabelos=            '{$dados['cabelos']}',
     comentario=         '{$dados['comentario']}',
+    personalidade=      '{$dados['personalidade']}',
+    ideais=             '{$dados['ideais']}',
+    defeitos=           '{$dados['defeitos']}',
+    ligacoes=           '{$dados['ligacoes']}',
     tendenciaEticaMoral='{$dados['tendenciaEticaMoral']}',
     bonusProeficiencia= '{$dados['bonusProeficiencia']}',
 
@@ -185,6 +193,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     proeBlefar='{$dados['proeBlefar']}',
     proeIntimidacao='{$dados['proeIntimidacao']}',
     proePersuacao='{$dados['proePersuacao']}'
+
+
     WHERE id=$id LIMIT 1";
 
 

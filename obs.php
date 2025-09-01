@@ -37,19 +37,39 @@ $ficha = mysqli_fetch_assoc($result);
             </div>
         </div>
         <form id="form" action="obsSalvar.php" method="post" enctype="multipart/form-data" 
-            class="grid grid-cols-12 gap-4"> 
+            class="grid grid-cols-10 gap-4"> 
             <input type="hidden" name="idFicha" value="<?= $id ?>">
 
-            <div class="col-span-12 grid grid-cols-12 gap-4">
-                <div class="col-span-4 bg-gray-800 p-4 rounded-2xl shadow-lg">
-                    <h2 class="font-bold mb-2">História do personagem</h2>
-                    <textarea name="historia"
-                        class="w-full h-[33rem] bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['historia']) ?></textarea>
-                </div>
+            <div class="col-span-10 grid grid-cols-10 gap-4">
                 <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
                     <h2 class="font-bold mb-2">Amigos</h2>
                     <textarea name="amigos"
-                        class="w-full h-[33rem] bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['amigos']) ?></textarea>
+                        class="w-full h-60 bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['amigos']) ?></textarea>
+                </div>
+                <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
+                    <h2 class="font-bold mb-2">Inimigos</h2>
+                    <textarea name="inimigos"
+                        class="w-full h-60 bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['inimigos']) ?></textarea>
+                </div>
+                <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
+                    <h2 class="font-bold mb-2">Tesouro</h2>
+                    <textarea name="tesouro"
+                        class="w-full h-60 bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['tesouro']) ?></textarea>
+                </div>
+                <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
+                    <h2 class="font-bold mb-2">Outros Dados</h2>
+                    <textarea name="outros"
+                        class="w-full h-60 bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['outros']) ?></textarea>
+                </div>
+                <div class="col-span-2 bg-gray-800 p-4 rounded-2xl shadow-lg">
+                    <h2 class="font-bold mb-2">Organizações</h2>
+                    <textarea name="organizacoes"
+                        class="w-full h-60 bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['organizacoes']) ?></textarea>
+                </div>
+                <div class="col-span-10 bg-gray-800 p-4 rounded-2xl shadow-lg">
+                    <h2 class="font-bold mb-2">História do personagem</h2>
+                    <textarea name="historia"
+                        class="w-full h-80 bg-gray-700 rounded p-2"><?= htmlspecialchars($ficha['historia']) ?></textarea>
                 </div>
             </div>
         </form>
