@@ -8,7 +8,7 @@ Este projeto não atende o mestre, isso será um projeto futuro.
 
 ## 📖 Requisitos
 Esta é uma ficha digital, para "substituir" a ficha PDF, ou seja, você ainda precisará do PDF **Livro do Jogador de D&D 5e** para preencher a ficha digital:  .  
-Ele está disponível [neste link](https://bibliotecaelfica.org/download/dd-5e-livro-do-jogador-fundo-brancocpf0vwogzqwz8gzdeddjkwpk/).
+Ele está disponível [neste link](https://bibliotecaelfica.org/download/dd-5e-livro-do-jogador-fundo-brancocpf0vwogzqwz8gzdeddjkwpk/) ou dentro da pasta PDF.
 
 ---
 
