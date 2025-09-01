@@ -24,7 +24,7 @@ Ele está disponível [neste link](https://bibliotecaelfica.org/download/dd-5e-l
 - **PHP** para back-end  
 - **TailwindCSS** para estilização  
 - **JavaScript** para interatividade  
-- **MySQL**
+- **MySQL** para guardar as informações
 
 ---
 
