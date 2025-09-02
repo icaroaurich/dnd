@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             WHERE idFicha=$idFicha";
 
-    echo $sql;
+    //echo $sql;
     mysqli_query($conexao, $sql);
 
     // Redireciona de volta para index.php com o ID

@@ -209,11 +209,11 @@ INSERT INTO `ficha` (`id`,`nomePersonagem`,`classe`,`nivel`,`antecedente`,`nomeJ
 
 
 --
--- Definition of table `magias`
+-- Definition of table `listamagias`
 --
 
-DROP TABLE IF EXISTS `magias`;
-CREATE TABLE `magias` (
+DROP TABLE IF EXISTS `listamagias`;
+CREATE TABLE `listamagias` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   `escola` varchar(45) DEFAULT NULL,
@@ -233,12 +233,133 @@ CREATE TABLE `magias` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `listamagias`
+--
+
+/*!40000 ALTER TABLE `listamagias` DISABLE KEYS */;
+INSERT INTO `listamagias` (`id`,`nome`,`escola`,`tempo`,`alcance`,`componente_v`,`componente_s`,`componente_m`,`duracao`,`efeito`,`lv1`,`lv5`,`lv11`,`lv17`,`nivelMagia`) VALUES 
+ (1,'Amizade','Encantamento','1 ação','Pessoal',0,0,'Maquiagem no rosto','1h','Vantagem em testes de Carisma contra 1 criatura não hostil. Ao terminar, ela sabe que foi enfeitiçada','-','-','-','-',0);
+/*!40000 ALTER TABLE `listamagias` ENABLE KEYS */;
+
+
+--
+-- Definition of table `magias`
+--
+
+DROP TABLE IF EXISTS `magias`;
+CREATE TABLE `magias` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idFicha` int(10) unsigned DEFAULT NULL,
+  `id1Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia0` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia1` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia2` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia3` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia4` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia5` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia6` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia7` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia8` tinyint(3) unsigned DEFAULT NULL,
+  `id1Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id2Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id3Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id4Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id5Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id6Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id7Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id8Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id9Magia9` tinyint(3) unsigned DEFAULT NULL,
+  `id10Magia9` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
 -- Dumping data for table `magias`
 --
 
 /*!40000 ALTER TABLE `magias` DISABLE KEYS */;
-INSERT INTO `magias` (`id`,`nome`,`escola`,`tempo`,`alcance`,`componente_v`,`componente_s`,`componente_m`,`duracao`,`efeito`,`lv1`,`lv5`,`lv11`,`lv17`,`nivelMagia`) VALUES 
- (1,'Amizade','Encantamento','1 ação','Pessoal',0,0,'Maquiagem no rosto','1h','Vantagem em testes de Carisma contra 1 criatura não hostil. Ao terminar, ela sabe que foi enfeitiçada','-','-','-','-',0);
+INSERT INTO `magias` (`id`,`idFicha`,`id1Magia0`,`id2Magia0`,`id3Magia0`,`id4Magia0`,`id5Magia0`,`id6Magia0`,`id7Magia0`,`id8Magia0`,`id9Magia0`,`id10Magia0`,`id1Magia1`,`id2Magia1`,`id3Magia1`,`id4Magia1`,`id5Magia1`,`id6Magia1`,`id7Magia1`,`id8Magia1`,`id9Magia1`,`id10Magia1`,`id1Magia2`,`id2Magia2`,`id3Magia2`,`id4Magia2`,`id5Magia2`,`id6Magia2`,`id7Magia2`,`id8Magia2`,`id9Magia2`,`id10Magia2`,`id1Magia3`,`id2Magia3`,`id3Magia3`,`id4Magia3`,`id5Magia3`,`id6Magia3`,`id7Magia3`,`id8Magia3`,`id9Magia3`,`id10Magia3`,`id1Magia4`,`id2Magia4`,`id3Magia4`,`id4Magia4`,`id5Magia4`,`id6Magia4`,`id7Magia4`,`id8Magia4`,`id9Magia4`,`id10Magia4`,`id1Magia5`,`id2Magia5`,`id3Magia5`,`id4Magia5`,`id5Magia5`,`id6Magia5`,`id7Magia5`,`id8Magia5`,`id9Magia5`,`id10Magia5`,`id1Magia6`,`id2Magia6`,`id3Magia6`,`id4Magia6`,`id5Magia6`,`id6Magia6`,`id7Magia6`,`id8Magia6`,`id9Magia6`,`id10Magia6`,`id1Magia7`,`id2Magia7`,`id3Magia7`,`id4Magia7`,`id5Magia7`,`id6Magia7`,`id7Magia7`,`id8Magia7`,`id9Magia7`,`id10Magia7`,`id1Magia8`,`id2Magia8`,`id3Magia8`,`id4Magia8`,`id5Magia8`,`id6Magia8`,`id7Magia8`,`id8Magia8`,`id9Magia8`,`id10Magia8`,`id1Magia9`,`id2Magia9`,`id3Magia9`,`id4Magia9`,`id5Magia9`,`id6Magia9`,`id7Magia9`,`id8Magia9`,`id9Magia9`,`id10Magia9`) VALUES 
+ (1,1,1,2,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL);
 /*!40000 ALTER TABLE `magias` ENABLE KEYS */;
 
 
