@@ -51,6 +51,7 @@ if ($vidaAtual < 0)
 
         <!-- GRID PRINCIPAL -->
         <form id="form" method="POST" action="batalhaSalvar.php" class="grid grid-cols-12 gap-6">
+            <input type="hidden" name="idFicha" value="<?= $id ?>">
 
             <!-- Vida -->
             <div class="col-span-4 bg-gray-800 p-4 rounded-xl">
@@ -77,8 +78,8 @@ if ($vidaAtual < 0)
 
             <!-- CA -->
             <div
-                class="col-span-2 flex flex-col items-center justify-center bg-gray-800 p-6 rounded-full text-center font-bold text-xl">
-                <label for="ca">CA</label>
+                class="col-span-2 flex flex-col items-center justify-center bg-gray-500 p-6 rounded-full text-center font-bold text-xl">
+                <label for="ca">🛡 CA</label>
                 <input type="number" id="ca" name="ca" value="<?= $ficha['ca'] ?>"
                     class="bg-gray-700 p-2 w-20 rounded text-center">
             </div>
@@ -107,25 +108,11 @@ if ($vidaAtual < 0)
             </div>
 
             <!-- Classe Conjurador -->
-            <div class="col-span-12 bg-gray-800 p-4 rounded-xl">
-                <p>Classe Conjurador:
-                    <input type="text" name="classeConjurador" value="<?= $ficha['classeConjurador'] ?>"
-                        class="bg-gray-700 p-1 w-60 rounded">
-                </p>
-                <div class="grid grid-cols-3 gap-4 mt-2">
-                    <div>Hab. chave:
-                        <input type="text" name="habChave" value="<?= $ficha['habChave'] ?>"
-                            class="bg-gray-700 p-1 w-40 rounded">
-                    </div>
-                    <div>CD TR:
-                        <input type="number" name="cddotr" value="<?= $ficha['cddotr'] ?>"
-                            class="bg-gray-700 p-1 w-20 rounded text-center">
-                    </div>
-                    <div>Bônus ataque:
-                        <input type="text" name="bonusAtaque" value="<?= $ficha['bonusAtaque'] ?>"
-                            class="bg-gray-700 p-1 w-40 rounded">
-                    </div>
-                </div>
+            <div class="col-span-12 grid grid-cols-4 gap-4 bg-gray-800 p-4 rounded-xl">
+                <div>Classe Conjurador:     <input type="text"      name="classeConjurador" value="<?= $ficha['classeConjurador'] ?>"   class="bg-gray-700 p-1 w-60 rounded"></div>
+                <div>Habilidade chave:  <br><input type="text"      name="habChave"         value="<?= $ficha['habChave'] ?>"           class="bg-gray-700 p-1 w-40 rounded"></div>
+                <div>CD do TR:          <br><input type="number"    name="cddotr"           value="<?= $ficha['cddotr'] ?>"             class="bg-gray-700 p-1 w-20 rounded text-center"></div>
+                <div>Bônus ataque:      <br><input type="text"      name="bonusAtaque"      value="<?= $ficha['bonusAtaque'] ?>"        class="bg-gray-700 p-1 w-40 rounded"></div>
             </div>
 
             <!-- Testes contra a morte -->
