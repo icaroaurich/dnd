@@ -17,12 +17,12 @@ function renderMagiasNivel($nivel, $ficha, $conexao)
     ?>
 
     <div class="overflow-x-auto">
-        <div class="flex gap-4 min-w-max">
+        <div class="flex gap-1 min-w-max">
             <?php for ($nivel = 0; $nivel <= 9; $nivel++): ?>
-                <div class="bg-gray-800 p-4 rounded-xl space-y-4 min-w-[250px]">
+                <div class="bg-gray-800 p-1 rounded-xl space-y-4 min-w-[250px]">
                     <h3 class="text-lg font-bold text-yellow-400">Nível <?= $nivel ?></h3>
 
-                    <?php for ($i = 1; $i <= 9; $i++):
+                    <?php for ($i = 1; $i <= 5; $i++):
                         $campo = "id{$i}Magia{$nivel}";
                         $idMagia = $ficha[$campo];
 
@@ -35,12 +35,13 @@ function renderMagiasNivel($nivel, $ficha, $conexao)
                             $detalhes = mysqli_fetch_assoc($resMagia);
                         }
                         ?>
-                        <div class="bg-gray-700 p-2 rounded space-y-2">
+                        <div class="bg-gray-700 p-1 rounded space-y-2">
                             <!-- Input ID -->
                             <input type="number" name="<?= $campo ?>" value="<?= $idMagia ?>"
-                                class="w-full text-black px-2 py-1 rounded">
+                                class="w-12 text-black px-2 py-1 rounded">
 
                             <!-- Campos principais -->
+							<div class="grid grid-cols-2">
                             <?php if ($detalhes): ?>
                                 <p><strong>Nome:</strong> <?= htmlspecialchars($detalhes['nome']) ?></p>
                                 <p><strong>Tempo:</strong> <?= htmlspecialchars($detalhes['tempo']) ?></p>
@@ -50,17 +51,14 @@ function renderMagiasNivel($nivel, $ficha, $conexao)
                                     <?= $detalhes['componente_s'] ? 'S ' : '' ?>
                                     <?= $detalhes['componente_m'] ? 'M ' : '' ?>
                                 </p>
-
-                                <!-- Campos de níveis -->
-                                <div class="grid grid-cols-2 gap-2 text-sm">
                                     <p><strong>Lv1:</strong> <?= htmlspecialchars($detalhes['lv1']) ?></p>
                                     <p><strong>Lv5:</strong> <?= htmlspecialchars($detalhes['lv5']) ?></p>
                                     <p><strong>Lv11:</strong> <?= htmlspecialchars($detalhes['lv11']) ?></p>
                                     <p><strong>Lv17:</strong> <?= htmlspecialchars($detalhes['lv17']) ?></p>
-                                </div>
                             <?php else: ?>
                                 <p class="text-gray-400 text-sm">Nenhuma magia</p>
                             <?php endif; ?>
+							</div>
                         </div>
                     <?php endfor; ?>
                 </div>
@@ -111,9 +109,7 @@ function renderMagiasNivel($nivel, $ficha, $conexao)
             <input type="hidden" name="idFicha" value="<?= $id ?>">
 
             <?php
-            for ($nivel = 0; $nivel <= 0; $nivel++) {
                 renderMagiasNivel($nivel, $ficha, $conexao);
-            }
             ?>
         </form>
     </div>   

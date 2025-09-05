@@ -222,7 +222,7 @@ CREATE TABLE `listamagias` (
   `componente_v` tinyint(1) unsigned DEFAULT '0',
   `componente_s` tinyint(1) unsigned DEFAULT '0',
   `componente_m` varchar(45) DEFAULT NULL,
-  `duracao` varchar(10) DEFAULT NULL,
+  `duracao` varchar(20) DEFAULT NULL,
   `efeito` varchar(255) DEFAULT NULL,
   `lv1` varchar(5) DEFAULT '-',
   `lv5` varchar(5) DEFAULT '-',
@@ -230,7 +230,7 @@ CREATE TABLE `listamagias` (
   `lv17` varchar(5) DEFAULT '-',
   `nivelMagia` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `listamagias`
@@ -238,7 +238,22 @@ CREATE TABLE `listamagias` (
 
 /*!40000 ALTER TABLE `listamagias` DISABLE KEYS */;
 INSERT INTO `listamagias` (`id`,`nome`,`escola`,`tempo`,`alcance`,`componente_v`,`componente_s`,`componente_m`,`duracao`,`efeito`,`lv1`,`lv5`,`lv11`,`lv17`,`nivelMagia`) VALUES 
- (1,'Amizade','Encantamento','1 ação','Pessoal',0,0,'Maquiagem no rosto','1h','Vantagem em testes de Carisma contra 1 criatura não hostil. Ao terminar, ela sabe que foi enfeitiçada','-','-','-','-',0);
+ (1,'Amizade','Encantamento','1 ação','Pessoal',0,0,'Maquiagem no rosto','1h','Vantagem em testes de Carisma contra 1 criatura não hostil. Ao terminar, ela sabe que foi enfeitiçada','-','-','-','-',0),
+ (2,'Ataque Certeiro',NULL,'1 acão','9m',0,1,NULL,'Conc, té 1 rodada',NULL,'-','-','-','-',0),
+ (3,'Consertar',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (4,'Espirro Ácido',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (5,'Globos de luz',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (6,'Ilusão Menor',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (7,'Luz',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (8,'Mãos Mágicas',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (9,'Mensagem',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (10,'Prestidigitação',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (11,'Proteção contra lâminas',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (12,'Raio de fogo',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (13,'Raio de gelo',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (14,'Rajada de Veneno',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (15,'Toque arrepiante',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0),
+ (16,'Toque chocante',NULL,NULL,NULL,0,0,NULL,NULL,NULL,'-','-','-','-',0);
 /*!40000 ALTER TABLE `listamagias` ENABLE KEYS */;
 
 
@@ -359,7 +374,7 @@ CREATE TABLE `magias` (
 
 /*!40000 ALTER TABLE `magias` DISABLE KEYS */;
 INSERT INTO `magias` (`id`,`idFicha`,`id1Magia0`,`id2Magia0`,`id3Magia0`,`id4Magia0`,`id5Magia0`,`id6Magia0`,`id7Magia0`,`id8Magia0`,`id9Magia0`,`id10Magia0`,`id1Magia1`,`id2Magia1`,`id3Magia1`,`id4Magia1`,`id5Magia1`,`id6Magia1`,`id7Magia1`,`id8Magia1`,`id9Magia1`,`id10Magia1`,`id1Magia2`,`id2Magia2`,`id3Magia2`,`id4Magia2`,`id5Magia2`,`id6Magia2`,`id7Magia2`,`id8Magia2`,`id9Magia2`,`id10Magia2`,`id1Magia3`,`id2Magia3`,`id3Magia3`,`id4Magia3`,`id5Magia3`,`id6Magia3`,`id7Magia3`,`id8Magia3`,`id9Magia3`,`id10Magia3`,`id1Magia4`,`id2Magia4`,`id3Magia4`,`id4Magia4`,`id5Magia4`,`id6Magia4`,`id7Magia4`,`id8Magia4`,`id9Magia4`,`id10Magia4`,`id1Magia5`,`id2Magia5`,`id3Magia5`,`id4Magia5`,`id5Magia5`,`id6Magia5`,`id7Magia5`,`id8Magia5`,`id9Magia5`,`id10Magia5`,`id1Magia6`,`id2Magia6`,`id3Magia6`,`id4Magia6`,`id5Magia6`,`id6Magia6`,`id7Magia6`,`id8Magia6`,`id9Magia6`,`id10Magia6`,`id1Magia7`,`id2Magia7`,`id3Magia7`,`id4Magia7`,`id5Magia7`,`id6Magia7`,`id7Magia7`,`id8Magia7`,`id9Magia7`,`id10Magia7`,`id1Magia8`,`id2Magia8`,`id3Magia8`,`id4Magia8`,`id5Magia8`,`id6Magia8`,`id7Magia8`,`id8Magia8`,`id9Magia8`,`id10Magia8`,`id1Magia9`,`id2Magia9`,`id3Magia9`,`id4Magia9`,`id5Magia9`,`id6Magia9`,`id7Magia9`,`id8Magia9`,`id9Magia9`,`id10Magia9`) VALUES 
- (1,1,1,2,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL);
+ (1,1,1,2,3,4,5,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,0,NULL);
 /*!40000 ALTER TABLE `magias` ENABLE KEYS */;
 
 
