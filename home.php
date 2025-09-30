@@ -30,6 +30,14 @@ $result = mysqli_query($conexao, $sql);
     <?php else: ?>
         <p class="text-center text-gray-400">Nenhum personagem encontrado.</p>
     <?php endif; ?>
+
+    <!-- Botão Incluir -->
+    <div class="mt-8 text-center">
+        <a href="incluir.php" 
+           class="inline-block bg-yellow-500 text-black font-bold px-6 py-3 rounded-lg shadow hover:bg-yellow-400 transition">
+           ➕ Incluir
+        </a>
+    </div>
 </div>
 </body>
 </html>
